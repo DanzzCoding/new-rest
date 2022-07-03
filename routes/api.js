@@ -14,26 +14,18 @@ nottext: {message: 'MASUKKAN TEXT' }
 notapikey: {message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' }
 
 //DOWNLOADER
-router.get('/download/ytmp4', async (req, res, next) => {  
-var apikeyInput = req.query.apikey
-if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
-fetch(encodeURI(`https://myselfff.herokuapp.com/docs/downloader/ytmp4`))
-.then(response => response.json())
-.then(data => { var result = data;
-res.json({ result })})})
-
 router.get('/download/ytmp3', async (req, res, next) => {  
 var apikeyInput = req.query.apikey
 if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
-fetch(encodeURI(`https://myselfff.herokuapp.com/docs/downloader/ytmp3`))
+fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/download/ytmp3?url=${url}`))
 .then(response => response.json())
 .then(data => { var result = data;
 res.json({ result })})})
 
-router.get('/download/ytplaymp4', async (req, res, next) => {  
+router.get('/download/ytmp4', async (req, res, next) => {  
 var apikeyInput = req.query.apikey
 if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
-fetch(encodeURI(`https://myselfff.herokuapp.com/docs/downloader/playmp4`))
+fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/download/ytmp4?url=${url}`))
 .then(response => response.json())
 .then(data => { var result = data;
 res.json({ result })})})
@@ -41,7 +33,15 @@ res.json({ result })})})
 router.get('/download/ytplaymp3', async (req, res, next) => {  
 var apikeyInput = req.query.apikey
 if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
-fetch(encodeURI(`https://myselfff.herokuapp.com/docs/downloader/playmp3`))
+fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/yt/playmp3?query=${query}`))
+.then(response => response.json())
+.then(data => { var result = data;
+res.json({ result })})})
+
+router.get('/download/ytplaymp4', async (req, res, next) => {  
+var apikeyInput = req.query.apikey
+if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
+fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/yt/playmp4?query=${query}`))
 .then(response => response.json())
 .then(data => { var result = data;
 res.json({ result })})})
@@ -49,7 +49,15 @@ res.json({ result })})})
 router.get('/download/ytplay', async (req, res, next) => {  
 var apikeyInput = req.query.apikey
 if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
-fetch(encodeURI(`https://myselfff.herokuapp.com/docs/downloader/playmp3`))
+fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/yt/playmp3?query=${query}`))
+.then(response => response.json())
+.then(data => { var result = data;
+res.json({ result })})})
+
+router.get('/download/ytsearch', async (req, res, next) => {  
+var apikeyInput = req.query.apikey
+if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
+fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/yt/search?query=${query}`))
 .then(response => response.json())
 .then(data => { var result = data;
 res.json({ result })})})
@@ -78,34 +86,18 @@ fetch(encodeURI(`https://snaptik.app`))
 .then(data => { var result = data;
 res.json({ result })})})
 
-router.get('/download/igstory', async (req, res, next) => {  
+router.get('/download/instagram', async (req, res, next) => {  
 var apikeyInput = req.query.apikey
 if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
-fetch(encodeURI(`https://myselfff.herokuapp.com/docs/wallpaper/`))
+fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/download/ig?url=${url}`))
 .then(response => response.json())
 .then(data => { var result = data;
 res.json({ result })})})
 
-router.get('/download/igfoto', async (req, res, next) => {  
+router.get('/download/facebook', async (req, res, next) => {  
 var apikeyInput = req.query.apikey
 if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
-fetch(encodeURI(`https://myselfff.herokuapp.com/docs/wallpaper/wallneon`))
-.then(response => response.json())
-.then(data => { var result = data;
-res.json({ result })})})
-
-router.get('/download/igvideo', async (req, res, next) => {  
-var apikeyInput = req.query.apikey
-if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
-fetch(encodeURI(`https://myselfff.herokuapp.com/docs/wallpaper/wallpubg`))
-.then(response => response.json())
-.then(data => { var result = data;
-res.json({ result })})})
-
-router.get('/download/igreal', async (req, res, next) => {  
-var apikeyInput = req.query.apikey
-if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
-fetch(encodeURI(`https://myselfff.herokuapp.com/docs/wallpaper/wallpubg`))
+fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/download/fb?url=${url}`))
 .then(response => response.json())
 .then(data => { var result = data;
 res.json({ result })})})
@@ -767,6 +759,39 @@ url: `https://myselfff.herokuapp.com/docs/canvas/alert?url=${url}`, method: 'GET
 request(requestSettings, function(error, response, body) {
 res.set('Content-Type', 'image/png');
 res.send(body)})})
+
+//SEARCH
+router.get('/search/pinterest', async (req, res, next) => {  
+var apikeyInput = req.query.apikey
+if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
+fetch(encodeURI(`https://myselfff.herokuapp.com/docs/search/pinterest?query=${query}`))
+.then(response => response.json())
+.then(data => { var result = data;
+res.json({ result })})})
+
+router.get('/search/ytsearch', async (req, res, next) => {  
+var apikeyInput = req.query.apikey
+if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
+fetch(encodeURI(`https://myselfff.herokuapp.com/docs/search/ytsearch?query=${query}`))
+.then(response => response.json())
+.then(data => { var result = data;
+res.json({ result })})})
+
+router.get('/search/modapk', async (req, res, next) => {  
+var apikeyInput = req.query.apikey
+if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
+fetch(encodeURI(`https://myselfff.herokuapp.com/docs/search/mod?query=${query}`))
+.then(response => response.json())
+.then(data => { var result = data;
+res.json({ result })})})
+
+router.get('/search/shopee', async (req, res, next) => {  
+var apikeyInput = req.query.apikey
+if(apikeyInput != apikey) return res.json({message: 'apikey invalid, gak punya apikey? chat gw aja yaaa di wa.me/6288296339947' })
+fetch(encodeURI(`https://myselfff.herokuapp.com/docs/search/shopee?query=${query}`))
+.then(response => response.json())
+.then(data => { var result = data;
+res.json({ result })})})
 
 //GAME
 router.get('/game/tebaklirik', async (req, res, next) => {  
